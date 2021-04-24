@@ -60,11 +60,15 @@ function onCloseModal() {
   window.removeEventListener('keydown', onLeftKeyClick); 
   window.removeEventListener('keydown', onEscKeyPress);
   lightboxEl.classList.remove('is-open');
-  //lightboxImgEl.removeAttribute('src');
-  //lightboxImgEl.removeAttribute('alt');
-  lightboxImgEl.src = "";
-  lightboxImgEl.alt = "";
+
+  setItemLink();
 };
+
+ function setItemLink(link = "", descr = "") {
+  lightboxImgEl.src = link;
+  lightboxImgEl.alt = descr;
+};
+ 
 
 function closeModal(event) {   
   if(event.target.classList.contains('lightbox__overlay')) {
@@ -81,10 +85,6 @@ function onEscKeyPress(event) {
     } 
 };
 
-function setItemLink(link, descr) {
-  lightboxImgEl.src = link;
-  lightboxImgEl.alt = descr;
-}
 
 //functins for left right scroll
 const rightBtn = document.querySelector('.gallery-item__right-btn');
